@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
             Zoro Couture
           </h1>
           <p className="text-xl md:text-2xl font-light mt-4">
-            — C'est Zoro Couture, un magicien du design.
+            — C'est Zoro Couture, un magicien de la couture.
           </p>
         </div>
         <div className="flex gap-12 mt-6">
