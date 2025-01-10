@@ -12,6 +12,13 @@ const projects = [
     id: 2,
     title: "Robe de Soirée",
     category: "Femme",
+    image: "/images/portfolio/barack3.jpeg",
+    year: "2023",
+  },
+  {
+    id: 3,
+    title: "Robe de Soirée",
+    category: "Femme",
     image: "/images/barack1.png",
     year: "2023",
   },
