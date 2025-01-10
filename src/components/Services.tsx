@@ -39,7 +39,7 @@ const services = [
 const Services = () => {
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
-      <div className="max-w-2xl mb-20">
+      <div data-aos="fade-up" className="max-w-2xl mb-20">
         <span className="text-gray-500 text-sm tracking-widest">
           Nos Services
         </span>
@@ -53,9 +53,11 @@ const Services = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        {services.map((service) => (
+        {services.map((service, index) => (
           <div
             key={service.id}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
             className="group relative bg-gray-50 rounded-xl overflow-hidden"
           >
             <div className="aspect-[4/3] overflow-hidden">

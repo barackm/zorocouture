@@ -60,7 +60,7 @@ const Portfolio = () => {
 
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
-      <div className="max-w-2xl mb-20">
+      <div data-aos="fade-up" className="max-w-2xl mb-20">
         <span className="text-gray-500 text-sm tracking-widest">
           Notre Portfolio
         </span>
@@ -73,7 +73,11 @@ const Portfolio = () => {
         </p>
       </div>
 
-      <div className="mb-12 overflow-x-auto pb-4">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="mb-12 overflow-x-auto pb-4"
+      >
         <Tabs
           tabs={tabs}
           activeTab={activeTab}
@@ -89,9 +93,11 @@ const Portfolio = () => {
               ? true
               : project.category.toLowerCase() === activeTab
           )
-          .map((project) => (
+          .map((project, index) => (
             <div
               key={project.id}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="group relative aspect-[3/4] overflow-hidden rounded-xl"
             >
               <img

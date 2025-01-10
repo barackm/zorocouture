@@ -1,6 +1,8 @@
+import "aos/dist/aos.css";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AosProvider from "@/components/AosProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <AosProvider>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </AosProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
+        <div data-aos="fade-right" className="space-y-8">
           <span className="text-gray-500 text-sm tracking-widest">
             Notre Histoire
           </span>
@@ -30,7 +30,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="space-y-12">
+        <div data-aos="fade-left" data-aos-delay="200" className="space-y-12">
           <div className="relative">
             <img
               src="/images/barack1.png"

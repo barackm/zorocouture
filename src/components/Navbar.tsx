@@ -6,6 +6,35 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { HiArrowUpRight } from "react-icons/hi2";
 
+const RotatingText = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFlipped((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="inline-block w-[100px]">
+      <AnimatePresence initial={false} mode="wait">
+        <motion.span
+          key={isFlipped ? "veste" : "couture"}
+          initial={{ rotateX: -90, opacity: 0 }}
+          animate={{ rotateX: 0, opacity: 1 }}
+          exit={{ rotateX: 90, opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block font-bold"
+        >
+          {isFlipped ? "Veste" : "Couture"}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,9 +67,17 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="text-2xl md:text-3xl font-extralight text-gray-900 hover:opacity-70 transition-opacity"
+            className="hover:opacity-70 transition-opacity flex items-center"
           >
-            ZORO COUTURE
+            <img
+              src="/logo1.png"
+              alt="Zoro Couture Logo"
+              className="h-12 w-auto"
+            />
+            <span className="text-2xl font-extralight uppercase text-gray-900 ml-2">
+              Zoro&nbsp;
+              <RotatingText />
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-12">

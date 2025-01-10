@@ -12,7 +12,7 @@ import Button from "./Button";
 const Contact = () => {
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
-      <div className="max-w-2xl mb-20">
+      <div data-aos="fade-up" className="max-w-2xl mb-20">
         <span className="text-gray-500 text-sm tracking-widest">
           Contactez-nous
         </span>
@@ -26,7 +26,7 @@ const Contact = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-        <div className="space-y-8">
+        <div data-aos="fade-right" className="space-y-8">
           <form className="space-y-6">
             <div className="space-y-4">
               <div className="relative">
@@ -74,7 +74,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="space-y-12">
+        <div data-aos="fade-left" data-aos-delay="200" className="space-y-12">
           <div className="relative">
             <img
               src="/images/contact2.jpg"
