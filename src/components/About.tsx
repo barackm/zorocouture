@@ -9,7 +9,7 @@ const About = () => {
             Notre Histoire
           </span>
           <h2 className="text-6xl md:text-7xl font-bold text-gray-900">
-            L'Art de la Couture
+            L&apos;Art de la Couture
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Je transforme vos idées en créations élégantes. Mon approche unique
