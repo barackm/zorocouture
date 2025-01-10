@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
   viewport: "width=device-width, initial-scale=1",
   openGraph: {
-    images: "/page.jpg",
+    images: "/page1.png",
   },
   twitter: {
     card: "summary_large_image",
-    images: "/page.jpg",
+    images: "/page1.png",
   },
   icons: {
     icon: "/logo2.png",
