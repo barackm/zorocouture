@@ -11,9 +11,21 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "Instagram", icon: <FiInstagram size={20} />, url: "#" },
-    { name: "Twitter", icon: <FiTwitter size={20} />, url: "#" },
-    { name: "Facebook", icon: <FiFacebook size={20} />, url: "#" },
+    {
+      name: "Instagram",
+      icon: <FiInstagram size={20} />,
+      url: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
+    {
+      name: "Twitter",
+      icon: <FiTwitter size={20} />,
+      url: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
+    {
+      name: "Facebook",
+      icon: <FiFacebook size={20} />,
+      url: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
   ];
 
   const contactInfo = [
