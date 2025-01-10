@@ -5,6 +5,13 @@ import Footer from "../components/Footer";
 import AosProvider from "@/components/AosProvider";
 import { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Work_Sans } from "next/font/google";
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-work-sans",
+});
 
 export const metadata: Metadata = {
   title: "Zoro Couture | Services de Couture Professionnelle",
@@ -29,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body className="min-h-screen flex flex-col">
+    <html lang="fr" className={workSans.variable}>
+      <body className="min-h-screen flex flex-col font-work-sans">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics
             GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
