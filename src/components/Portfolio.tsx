@@ -1,30 +1,63 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Tabs from "./Tabs";
+import { HiArrowUpRight } from "react-icons/hi2";
 
-const projects = [
+enum Category {
+  MEN = "Homme",
+  WOMEN = "Femme",
+  WEDDING = "Mariage",
+}
+
+enum TabType {
+  ALL = "all",
+  MEN = "men",
+  WOMEN = "women",
+  WEDDING = "wedding",
+}
+
+interface Project {
+  id: number;
+  title: string;
+  category: Category;
+  image: string;
+  year: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Costume Sur Mesure",
-    category: "Homme",
+    category: Category.MEN,
     image: "/images/portfolio/barack.png",
     year: "2023",
   },
   {
     id: 2,
     title: "Robe de Soirée",
-    category: "Femme",
+    category: Category.WOMEN,
     image: "/images/portfolio/barack3.jpeg",
     year: "2023",
   },
   {
     id: 3,
     title: "Robe de Soirée",
-    category: "Femme",
+    category: Category.WOMEN,
     image: "/images/barack1.png",
     year: "2023",
   },
 ];
 
+const tabs = [
+  { id: TabType.ALL, label: "Tous" },
+  { id: TabType.MEN, label: Category.MEN },
+  { id: TabType.WOMEN, label: Category.WOMEN },
+  { id: TabType.WEDDING, label: Category.WEDDING },
+];
+
 const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState("all");
+
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
       <div className="max-w-2xl mb-20">
@@ -40,50 +73,52 @@ const Portfolio = () => {
         </p>
       </div>
 
-      <div className="flex gap-8 mb-12 overflow-x-auto pb-4">
-        <button className="text-sm font-medium px-6 py-2 rounded-full bg-black text-white">
-          Tous
-        </button>
-        <button className="text-sm font-medium px-6 py-2 rounded-full hover:bg-gray-100 transition-colors">
-          Homme
-        </button>
-        <button className="text-sm font-medium px-6 py-2 rounded-full hover:bg-gray-100 transition-colors">
-          Femme
-        </button>
-        <button className="text-sm font-medium px-6 py-2 rounded-full hover:bg-gray-100 transition-colors">
-          Mariage
-        </button>
+      <div className="mb-12 overflow-x-auto pb-4">
+        <Tabs
+          tabs={tabs}
+          activeTab={activeTab}
+          onChange={setActiveTab}
+          className="inline-flex"
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="group relative aspect-[3/4] overflow-hidden rounded-xl"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <span className="text-white/70 text-sm tracking-widest">
-                  {project.category}
-                </span>
-                <h3 className="text-white text-2xl font-bold mt-2">
-                  {project.title}
-                </h3>
-                <div className="mt-4 flex items-center gap-4">
-                  <span className="text-white/70 text-sm">{project.year}</span>
-                  <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform">
-                    <span className="text-xl">↗</span>
-                  </button>
+        {projects
+          .filter((project) =>
+            activeTab === "all"
+              ? true
+              : project.category.toLowerCase() === activeTab
+          )
+          .map((project) => (
+            <div
+              key={project.id}
+              className="group relative aspect-[3/4] overflow-hidden rounded-xl"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <span className="text-white/70 text-sm tracking-widest">
+                    {project.category}
+                  </span>
+                  <h3 className="text-white text-2xl font-bold mt-2">
+                    {project.title}
+                  </h3>
+                  <div className="mt-4 flex items-center gap-4">
+                    <span className="text-white/70 text-sm">
+                      {project.year}
+                    </span>
+                    <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform">
+                      <HiArrowUpRight className="text-xl" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </section>
   );

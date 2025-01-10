@@ -1,10 +1,11 @@
 import React from "react";
+import Button from "./Button";
 
 const Hero: React.FC = () => {
   return (
     <section className="h-screen flex flex-col md:flex-row justify-between items-center bg-white px-6 md:px-16 lg:px-32 relative">
       <div className="flex flex-col justify-center gap-8 max-w-xl md:items-start md:text-left">
-        <span className="text-gray-500 text-sm tracking-widest rotate-90 origin-left md:absolute left-0 top-1/2 -translate-y-1/2">
+        <span className="text-gray-500 text-sm uppercase tracking-widest rotate-90 origin-left md:absolute left-0 top-1/2 -translate-y-1/2">
           Créateur de Mode
         </span>
         <div>
@@ -34,13 +35,6 @@ const Hero: React.FC = () => {
           className="rounded-xl object-contain shadow-lg w-full md:w-[400px] h-[400px]"
         />
       </div>
-
-      <a
-        href="/contact"
-        className="absolute top-10 right-10 text-sm font-semibold underline hover:text-gray-700 transition-colors"
-      >
-        Réserver un Appel ↗
-      </a>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500 animate-bounce">
         <p className="uppercase tracking-wide text-sm">Défiler vers le bas ↓</p>

@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   fullWidth?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 const variantStyles = {
@@ -27,6 +28,7 @@ const Button = ({
   onClick,
   href,
   fullWidth = false,
+  type = "button",
 }: ButtonProps) => {
   const baseStyles = `
     inline-flex items-center gap-4 px-8 py-4 
@@ -47,7 +49,7 @@ const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={baseStyles}>
+    <button type={type} onClick={onClick} className={baseStyles}>
       <span>{children}</span>
       <span>{icon}</span>
     </button>

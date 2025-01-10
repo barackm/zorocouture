@@ -1,6 +1,13 @@
 import React from "react";
-import { HiUser, HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import {
+  HiUser,
+  HiMail,
+  HiPhone,
+  HiLocationMarker,
+  HiArrowRight,
+} from "react-icons/hi";
 import { BsChatDots } from "react-icons/bs";
+import Button from "./Button";
 
 const Contact = () => {
   return (
@@ -50,9 +57,9 @@ const Contact = () => {
                 ></textarea>
               </div>
             </div>
-            <button className="w-full bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-900 transition-colors">
-              Envoyer le message →
-            </button>
+            <Button fullWidth type="submit" icon={<HiArrowRight />}>
+              Envoyer le message
+            </Button>
           </form>
 
           <div className="flex items-center gap-8 text-sm text-gray-500">
