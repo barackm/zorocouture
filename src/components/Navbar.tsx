@@ -6,32 +6,42 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { HiArrowUpRight } from "react-icons/hi2";
 
-const RotatingText = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const TypingText = () => {
+  const words = ["Couture", "Veste"];
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFlipped((prev) => !prev);
-    }, 3000);
+    const currentWord = words[wordIndex];
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (text !== currentWord) {
+            setText(currentWord.slice(0, text.length + 1));
+          } else {
+            setTimeout(() => setIsDeleting(true), 1500); // Wait before deleting
+          }
+        } else {
+          if (text === "") {
+            setIsDeleting(false);
+            setWordIndex((prev) => (prev + 1) % words.length);
+          } else {
+            setText(currentWord.slice(0, text.length - 1));
+          }
+        }
+      },
+      isDeleting ? 100 : 200
+    );
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, wordIndex]);
 
   return (
-    <div className="inline-block w-[100px]">
-      <AnimatePresence initial={false} mode="wait">
-        <motion.span
-          key={isFlipped ? "veste" : "couture"}
-          initial={{ rotateX: -90, opacity: 0 }}
-          animate={{ rotateX: 0, opacity: 1 }}
-          exit={{ rotateX: 90, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-block font-bold"
-        >
-          {isFlipped ? "Veste" : "Couture"}
-        </motion.span>
-      </AnimatePresence>
-    </div>
+    <span className="inline-block w-[100px] font-bold">
+      {text}
+      <span className="animate-blink font-thin -translate-y-6">|</span>
+    </span>
   );
 };
 
@@ -76,7 +86,7 @@ const Navbar = () => {
             />
             <span className="text-2xl font-extralight uppercase text-gray-900 ml-2">
               Zoro&nbsp;
-              <RotatingText />
+              <TypingText />
             </span>
           </Link>
 

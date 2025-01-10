@@ -6,12 +6,19 @@ import AosProvider from "@/components/AosProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Zoro Couture | Professional Tailoring Services",
+  title: "Zoro Couture | Services de Couture Professionnelle",
   description:
-    "Expert tailoring services offering bespoke suits, alterations, and custom clothing.",
+    "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
   viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    images: "/page.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: "/page.jpg",
+  },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo2.png",
   },
 };
 
