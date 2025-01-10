@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
       >
         <div className="w-[200px] h-[1px] bg-black/20"></div>
         <span className="text-xs uppercase tracking-[0.2em] whitespace-nowrap text-black/60">
-          Créateur de Mode — Since 2018
+          Créateur de Mode — Depuis 2018
         </span>
         <div className="w-[200px] h-[1px] bg-black/20"></div>
       </div>

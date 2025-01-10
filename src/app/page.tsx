@@ -9,10 +9,18 @@ const HomePage = () => {
   return (
     <main className="flex flex-col items-center">
       <Hero />
-      <About />
-      <Portfolio />
-      <Services />
-      <Contact />
+      <section className="w-full min-h-screen bg-gradient-to-b from-rose-50/50 via-white to-white">
+        <About />
+      </section>
+      <section className="w-full min-h-screen bg-gradient-to-b from-sky-50/50 via-white to-white">
+        <Portfolio />
+      </section>
+      <section className="w-full min-h-screen bg-gradient-to-b from-violet-50/50 via-white to-white">
+        <Services />
+      </section>
+      <section className="w-full min-h-screen bg-gradient-to-b from-emerald-50/50 via-white to-white">
+        <Contact />
+      </section>
     </main>
   );
 };

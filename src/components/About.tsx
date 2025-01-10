@@ -3,14 +3,15 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
+    <section className="w-full py-20 px-8 md:px-16 lg:px-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div data-aos="fade-right" className="space-y-8">
           <span className="text-gray-500 text-sm tracking-widest">
             Notre Histoire
           </span>
-          <h2 className="text-6xl md:text-7xl font-bold text-gray-900">
-            L&apos;Art de la Couture
+          <h2 className="text-[clamp(3rem,10vw,6rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
+            L&apos;Art
+            <span className="block font-thin text-black/60">de la Couture</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Je transforme vos idées en créations élégantes. Mon approche unique
@@ -21,12 +22,20 @@ const About = () => {
 
           <div className="flex gap-12 mt-12">
             <div>
-              <h3 className="text-4xl font-bold">5+</h3>
-              <p className="text-sm text-gray-500">Années d&apos;expérience</p>
+              <p className="text-4xl sm:text-5xl font-light tracking-tight">
+                5<span className="text-black/30">+</span>
+              </p>
+              <p className="text-sm sm:text-base text-black/60 mt-1">
+                Années d&apos;expérience
+              </p>
             </div>
             <div>
-              <h3 className="text-4xl font-bold">500+</h3>
-              <p className="text-sm text-gray-500">Créations uniques</p>
+              <p className="text-4xl sm:text-5xl font-light tracking-tight">
+                500<span className="text-black/30">+</span>
+              </p>
+              <p className="text-sm sm:text-base text-black/60 mt-1">
+                Créations uniques
+              </p>
             </div>
           </div>
         </div>

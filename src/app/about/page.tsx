@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutPage: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <About />
     </div>
   );

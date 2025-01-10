@@ -39,13 +39,14 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-32">
+    <section className="w-full py-20 px-8 md:px-16 lg:px-32">
       <div data-aos="fade-up" className="max-w-2xl mb-20">
         <span className="text-gray-500 text-sm tracking-widest">
           Nos Services
         </span>
-        <h2 className="text-6xl md:text-7xl font-bold text-gray-900 mt-4">
-          Expertise Artisanale
+        <h2 className="text-[clamp(3rem,10vw,6rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
+          Expertise
+          <span className="block font-thin text-black/60">Artisanale</span>
         </h2>
         <p className="text-lg text-gray-700 mt-6">
           Découvrez notre gamme de services de haute couture, où chaque détail
