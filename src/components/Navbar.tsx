@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { HiArrowUpRight } from "react-icons/hi2";
+import Image from "next/image";
 
 const TypingText = () => {
   const words = ["Couture", "Veste"];
@@ -35,7 +36,7 @@ const TypingText = () => {
     );
 
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, wordIndex]);
+  }, [text, isDeleting, wordIndex, words]);
 
   return (
     <span className="inline-block w-[100px] font-bold">
@@ -79,9 +80,11 @@ const Navbar = () => {
             href="/"
             className="hover:opacity-70 transition-opacity flex items-center"
           >
-            <img
+            <Image
               src="/logo1.png"
               alt="Zoro Couture Logo"
+              width={48}
+              height={48}
               className="h-12 w-auto"
             />
             <span className="text-2xl font-extralight uppercase text-gray-900 ml-2">

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Hero: React.FC = () => {
   return (
@@ -28,9 +29,11 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="w-full md:w-1/3 order-1 md:order-2">
-        <img
+        <Image
           src="/images/zoro.png"
           alt="Profil du tailleur"
+          width={400}
+          height={400}
           className="rounded-xl object-contain shadow-lg w-full max-w-[300px] md:max-w-[400px] h-[300px] md:h-[400px] mx-auto"
         />
       </div>

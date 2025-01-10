@@ -49,8 +49,8 @@ const Footer = () => {
             <div className="space-y-8">
               <h2 className="text-3xl font-bold">Zoro Couture</h2>
               <p className="text-gray-600 leading-relaxed">
-                L'excellence dans l'art de la couture sur mesure, où chaque
-                détail raconte une histoire unique.
+                L&apos;excellence dans l&apos;art de la couture sur mesure, où
+                chaque détail raconte une histoire unique.
               </p>
               <Button variant="outline" href="/contact">
                 Prendre Rendez-vous

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import Image from "next/image";
 
 const services = [
   {
@@ -61,9 +62,11 @@ const Services = () => {
             className="group relative bg-gray-50 rounded-xl overflow-hidden"
           >
             <div className="aspect-[4/3] overflow-hidden">
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
+                width={400}
+                height={300}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>

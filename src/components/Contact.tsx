@@ -8,6 +8,7 @@ import {
 } from "react-icons/hi";
 import { BsChatDots } from "react-icons/bs";
 import Button from "./Button";
+import Image from "next/image";
 
 const Contact = () => {
   return (
@@ -76,9 +77,11 @@ const Contact = () => {
 
         <div data-aos="fade-left" data-aos-delay="200" className="space-y-12">
           <div className="relative">
-            <img
+            <Image
               src="/images/contact2.jpg"
               alt="Notre atelier"
+              width={800}
+              height={600}
               className="w-full aspect-[4/3] object-cover rounded-xl"
             />
             <div className="absolute bottom-8 left-8 bg-white p-6 rounded-lg shadow-xl">

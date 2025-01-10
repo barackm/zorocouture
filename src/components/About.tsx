@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -32,9 +33,11 @@ const About = () => {
 
         <div data-aos="fade-left" data-aos-delay="200" className="space-y-12">
           <div className="relative">
-            <img
+            <Image
               src="/images/barack1.png"
               alt="Atelier de couture"
+              width={600}
+              height={600}
               className="w-full h-[600px] object-scale-down rounded-xl shadow-lg mb-10"
             />
             <div className="absolute bottom-8 left-8 bg-white p-6 rounded-lg shadow-xl">
