@@ -35,7 +35,7 @@ const About = () => {
             <img
               src="/images/barack1.png"
               alt="Atelier de couture"
-              className="w-full h-[600px] object-scale-down rounded-xl shadow-lg"
+              className="w-full h-[600px] object-scale-down rounded-xl shadow-lg mb-10"
             />
             <div className="absolute bottom-8 left-8 bg-white p-6 rounded-lg shadow-xl">
               <p className="text-sm text-gray-500 tracking-widest">
