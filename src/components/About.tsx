@@ -20,8 +20,8 @@ const About = () => {
 
           <div className="flex gap-12 mt-12">
             <div>
-              <h3 className="text-4xl font-bold">15+</h3>
-              <p className="text-sm text-gray-500">Années d'expérience</p>
+              <h3 className="text-4xl font-bold">5+</h3>
+              <p className="text-sm text-gray-500">Années d&apos;expérience</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold">500+</h3>
