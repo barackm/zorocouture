@@ -4,9 +4,18 @@ import { FiInstagram, FiTwitter, FiFacebook } from "react-icons/fi";
 
 const Hero: React.FC = () => {
   const socialLinks = [
-    { icon: <FiInstagram size={20} />, href: "#" },
-    { icon: <FiTwitter size={20} />, href: "#" },
-    { icon: <FiFacebook size={20} />, href: "#" },
+    {
+      icon: <FiInstagram size={20} />,
+      href: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
+    {
+      icon: <FiTwitter size={20} />,
+      href: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
+    {
+      icon: <FiFacebook size={20} />,
+      href: "https://www.facebook.com/johnsongs/about?locale=ms_MY",
+    },
   ];
 
   return (

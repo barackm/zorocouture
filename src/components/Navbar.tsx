@@ -74,7 +74,7 @@ const Navbar = () => {
           : "py-6 bg-white/50 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-32">
+      <div className="mx-auto px-8 md:px-16 lg:px-32">
         <div className="flex justify-between items-center">
           <Link
             href="/"

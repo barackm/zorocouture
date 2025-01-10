@@ -43,7 +43,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-32">
+      <div className="mx-auto px-8 md:px-16 lg:px-32">
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
             <div className="space-y-8">
