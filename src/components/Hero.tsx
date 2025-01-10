@@ -10,8 +10,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40">
-      {/* Side text - hidden on mobile */}
+    <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40 overflow-hidden">
       <div
         className="fixed hidden lg:flex items-center gap-4"
         style={{
@@ -28,11 +27,10 @@ const Hero: React.FC = () => {
         <div className="w-[200px] h-[1px] bg-black/20"></div>
       </div>
 
-      <div className="min-h-screen flex flex-col lg:flex-row items-center">
-        {/* Left content - Updated text sizes and padding */}
-        <div className="w-full lg:w-1/2 relative z-10 pt-40 lg:pt-0">
+      <div className="min-h-screen flex flex-col items-center lg:flex-row lg:items-center">
+        <div className="w-full lg:w-1/2 relative z-10 pt-32 lg:pt-0">
           <div className="space-y-8">
-            <h1 className="text-[clamp(6rem,20vw,12rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
+            <h1 className="text-[clamp(6rem,20vw,9rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
               Zoro
               <span className="block font-thin text-black/60">Couture</span>
             </h1>
@@ -74,20 +72,20 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Image */}
-        <div className="fixed lg:absolute right-0 top-0 w-full lg:w-[65%] h-screen -z-10 lg:z-0 opacity-5 lg:opacity-100 pt-20 lg:pt-0">
-          <div className="relative w-full h-full">
+        <div className="w-full h-[60vh] lg:h-screen lg:absolute lg:right-32 lg:top-0 lg:w-[55%] mt-4 lg:mt-0 -translate-y-12 lg:translate-y-0">
+          <div className="relative h-full w-full">
             <Image
               src="/images/zoro.png"
               alt="Profil du tailleur"
               fill
-              className="object-contain object-center lg:object-right"
+              sizes="(max-width: 768px) 100vw, 70vw"
+              className="object-contain object-center lg:object-right-bottom scale-110"
               priority
+              quality={90}
             />
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="hidden md:flex fixed lg:absolute left-1/2 -translate-x-1/2 bottom-8 flex-col items-center gap-2 text-black/40">
           <div className="h-12 w-[1px] bg-current animate-pulse" />
           <p className="text-xs uppercase tracking-[0.2em]">Scroll</p>
