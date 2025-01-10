@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           Créateur de Mode
         </span>
         <div>
-          <h1 className="text-5xl sm:text-7xl md:text-9xl font-extrabold leading-none">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-extrabold leading-none ">
             Zoro Couture
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-light mt-4">
