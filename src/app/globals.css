@@ -59,11 +59,20 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-overflow-scrolling: touch;
   }
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
   }
+}
+
+html,
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 .perspective-1000 {

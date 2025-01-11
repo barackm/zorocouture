@@ -17,16 +17,45 @@ export const metadata: Metadata = {
   title: "Zoro Couture | Services de Couture Professionnelle",
   description:
     "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
-  viewport: "width=device-width, initial-scale=1",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: "cover",
+  },
   openGraph: {
-    images: "/page1.jpeg",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://zorocouture.com",
+    siteName: "Zoro Couture",
+    title: "Zoro Couture | Services de Couture Professionnelle",
+    description:
+      "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
+    images: [
+      {
+        url: "/page1.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Zoro Couture",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    images: "/page1.jpeg",
+    title: "Zoro Couture | Services de Couture Professionnelle",
+    description:
+      "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
+    images: ["/page1.jpeg"],
+    creator: "@zorocouture",
   },
   icons: {
     icon: "/logo2.png",
+  },
+  other: {
+    "x-ua-compatible": "IE=edge",
+    "format-detection": "telephone=no",
+    "apple-mobile-web-app-capable": "yes",
   },
 };
 
@@ -37,7 +66,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={workSans.variable}>
-      <body className="min-h-screen flex flex-col font-work-sans">
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </head>
+      <body className="min-h-screen flex flex-col font-work-sans overflow-x-hidden">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics
             GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
