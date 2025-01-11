@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { HiUser, HiMail, HiArrowRight } from "react-icons/hi";
 import Input from "./Input";
@@ -8,9 +8,9 @@ import Button from "./Button";
 const formSpreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 
 const defaultValues = {
-  name: "Barack Mukelenga",
-  email: "barackmukelenga100@gmail.com",
-  message: "Here is the Message",
+  name: "",
+  email: "",
+  message: "",
 };
 
 interface IFormInputs {
@@ -22,6 +22,22 @@ interface IFormInputs {
 const ContactForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | "">("");
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    if (status === "success") {
+      timeoutId = setTimeout(() => {
+        setStatus("");
+      }, 5000);
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [status]);
 
   const {
     register,
