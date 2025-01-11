@@ -14,16 +14,29 @@ const workSans = Work_Sans({
   variable: "--font-work-sans",
 });
 
+const googleVerificationId = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION_ID;
+
 export const metadata: Metadata = {
-  title: "Zoro Couture | Services de Couture Professionnelle",
+  metadataBase: new URL("https://zorocouture.com"),
+  title: {
+    default: "Zoro Couture | Expert en Haute Couture à [City]",
+    template: "%s | Zoro Couture",
+  },
   description:
-    "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
+    "Atelier de haute couture spécialisé dans la création de vêtements sur mesure, costumes, robes de mariée et retouches. Plus de 200 projets réalisés avec excellence depuis 2018.",
+  keywords: [
+    "haute couture",
+    "couture sur mesure",
+    "tailleur",
+    "création de vêtements",
+    "retouches",
+    "costume sur mesure",
+    "robe de mariée",
+  ],
   viewport: {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
+    maximumScale: 5,
   },
   openGraph: {
     type: "website",
@@ -35,20 +48,42 @@ export const metadata: Metadata = {
       "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
     images: [
       {
-        url: "/page1.jpeg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Zoro Couture",
+        alt: "Zoro Couture - Atelier de Haute Couture",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@zorocouture",
     title: "Zoro Couture | Services de Couture Professionnelle",
     description:
       "Services de couture expert offrant des costumes sur mesure, des retouches et des vêtements personnalisés.",
     images: ["/page1.jpeg"],
     creator: "@zorocouture",
+  },
+  alternates: {
+    canonical: "https://zorocouture.com",
+    languages: {
+      "fr-FR": "https://zorocouture.com",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: googleVerificationId,
   },
   icons: {
     icon: "/logo2.png",
