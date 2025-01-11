@@ -42,20 +42,24 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className="bg-gray-900 text-white">
       <div className="mx-auto px-8 md:px-16 lg:px-32">
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
             <div className="space-y-8">
-              <h2 className="text-[clamp(2.5rem,8vw,3rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
+              <h2 className="text-[clamp(2.5rem,8vw,3rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-white/90">
                 Zoro
-                <span className="block font-thin text-black/60">Couture</span>
+                <span className="block font-thin text-white/70">Couture</span>
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 L&apos;excellence dans l&apos;art de la couture sur mesure, où
                 chaque détail raconte une histoire unique.
               </p>
-              <Button variant="outline" href="/contact">
+              <Button
+                variant="outline"
+                href="/contact"
+                className="border-white/20 text-white hover:bg-white/10"
+              >
                 Prendre Rendez-vous
               </Button>
             </div>
@@ -69,7 +73,7 @@ const Footer = () => {
                   <a
                     key={link.name}
                     href={link.url}
-                    className="block text-gray-600 hover:text-black transition-colors"
+                    className="block text-gray-400 hover:text-white transition-colors"
                   >
                     {link.name}
                   </a>
@@ -81,8 +85,8 @@ const Footer = () => {
               <h3 className="text-gray-400 text-sm tracking-widest">CONTACT</h3>
               <div className="space-y-4">
                 {contactInfo.map((item) => (
-                  <p key={item.label} className="text-gray-600">
-                    <span className="block text-sm text-gray-400">
+                  <p key={item.label} className="text-gray-400">
+                    <span className="block text-sm text-gray-500">
                       {item.label}
                     </span>
                     {item.value}
@@ -100,7 +104,7 @@ const Footer = () => {
                   <a
                     key={social.name}
                     href={social.url}
-                    className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-black hover:text-white transition-all"
+                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-gray-900 transition-all"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -111,15 +115,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="py-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-sm">
+        <div className="py-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-sm">
             © {year} Zoro Couture. Tous droits réservés.
           </p>
           <a
             href="https://barackm.me"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
           >
             Développé par Promovize
             <FiArrowUpRight size={16} />
