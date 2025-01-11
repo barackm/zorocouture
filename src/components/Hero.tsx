@@ -50,6 +50,31 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40 overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Gradient Orb - Increased size and opacity */}
+        <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-gradient-to-r from-rose-200/30 to-violet-200/30 rounded-full blur-[80px] z-0 animate-float" />
+
+        {/* Additional Gradient Orb */}
+        <div className="absolute -bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-to-l from-sky-200/20 to-emerald-200/20 rounded-full blur-[100px] z-0 animate-float animation-delay-400" />
+
+        {/* Subtle Grid Pattern - Increased opacity */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:48px_48px] z-0" />
+
+        {/* Decorative Circles - Made more visible */}
+        <div className="absolute top-20 right-[15%] w-4 h-4 border-2 border-black/20 rounded-full animate-float animation-delay-200" />
+        <div className="absolute top-32 right-[25%] w-3 h-3 border-2 border-black/15 rounded-full animate-float animation-delay-400" />
+        <div className="absolute bottom-32 left-[20%] w-5 h-5 border-2 border-black/20 rounded-full animate-float animation-delay-600" />
+
+        {/* Subtle Lines - Made thicker and more visible */}
+        <div className="absolute top-40 right-20 w-32 h-[2px] bg-black/10 rotate-45" />
+        <div className="absolute bottom-40 left-20 w-32 h-[2px] bg-black/10 -rotate-45" />
+
+        {/* Additional decorative elements */}
+        <div className="absolute top-1/3 left-20 w-24 h-24 border border-black/10 rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-32 w-16 h-16 border border-black/10 rotate-45" />
+      </div>
+
       <div
         ref={fixedTextRef}
         className="fixed hidden lg:flex items-center gap-4 transition-colors duration-300"
