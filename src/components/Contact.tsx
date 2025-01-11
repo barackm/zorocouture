@@ -71,7 +71,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-2">
               <HiMail size={16} />
-              <span>contact@zorocouture.com</span>
+              <span>johnfumba70@gmail.com</span>
             </div>
           </div>
         </div>

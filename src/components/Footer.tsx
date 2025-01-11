@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { label: "Email", value: "contact@zorocouture.com" },
+    { label: "Email", value: "johnfumba70@gmail.com" },
     { label: "Téléphone", value: "+243 994 068 185" },
     { label: "Adresse", value: "Goma, Himbi" },
   ];
