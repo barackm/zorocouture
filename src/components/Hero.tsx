@@ -50,28 +50,21 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40 overflow-hidden">
-      {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Gradient Orb - Increased size and opacity */}
-        <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-gradient-to-r from-rose-200/30 to-violet-200/30 rounded-full blur-[80px] z-0 animate-float" />
+        <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-gradient-to-r from-rose-200/30 to-violet-200/30 rounded-full blur-[80px] z-0" />
 
-        {/* Additional Gradient Orb */}
-        <div className="absolute -bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-to-l from-sky-200/20 to-emerald-200/20 rounded-full blur-[100px] z-0 animate-float animation-delay-400" />
+        <div className="absolute -bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-to-l from-sky-200/20 to-emerald-200/20 rounded-full blur-[100px] z-0" />
 
-        {/* Subtle Grid Pattern - Increased opacity */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:48px_48px] z-0" />
 
-        {/* Decorative Circles - Made more visible */}
-        <div className="absolute top-20 right-[15%] w-4 h-4 border-2 border-black/20 rounded-full animate-float animation-delay-200" />
-        <div className="absolute top-32 right-[25%] w-3 h-3 border-2 border-black/15 rounded-full animate-float animation-delay-400" />
-        <div className="absolute bottom-32 left-[20%] w-5 h-5 border-2 border-black/20 rounded-full animate-float animation-delay-600" />
+        <div className="absolute top-20 right-[15%] w-4 h-4 border-2 border-black/20 rounded-full" />
+        <div className="absolute top-32 right-[25%] w-3 h-3 border-2 border-black/15 rounded-full" />
+        <div className="absolute bottom-32 left-[20%] w-5 h-5 border-2 border-black/20 rounded-full" />
 
-        {/* Subtle Lines - Made thicker and more visible */}
         <div className="absolute top-40 right-20 w-32 h-[2px] bg-black/10 rotate-45" />
         <div className="absolute bottom-40 left-20 w-32 h-[2px] bg-black/10 -rotate-45" />
 
-        {/* Additional decorative elements */}
-        <div className="absolute top-1/3 left-20 w-24 h-24 border border-black/10 rounded-full animate-pulse" />
+        <div className="absolute top-1/3 left-20 w-24 h-24 border border-black/10 rounded-full" />
         <div className="absolute bottom-1/4 right-32 w-16 h-16 border border-black/10 rotate-45" />
       </div>
 
@@ -163,9 +156,15 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="hidden md:flex fixed lg:absolute left-1/2 -translate-x-1/2 bottom-8 flex-col items-center gap-2 text-black/40">
-          <div className="h-12 w-[1px] bg-current animate-pulse" />
-          <p className="text-xs uppercase tracking-[0.2em]">Scroll</p>
+        <div className="hidden md:flex fixed lg:absolute left-1/2 -translate-x-1/2 bottom-8 flex-col items-center gap-3">
+          <div className="relative h-12 w-7 rounded-full border-2 border-black/40">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/60 rounded-full animate-scroll-gentle" />
+          </div>
+          <div className="flex flex-col -mt-1">
+            <span className="block w-3.5 h-3.5 border-b-2 border-r-2 border-black/40 rotate-45 animate-scroll-arrow-1" />
+            <span className="block w-3.5 h-3.5 border-b-2 border-r-2 border-black/40 rotate-45 animate-scroll-arrow-2 -mt-1" />
+            <span className="block w-3.5 h-3.5 border-b-2 border-r-2 border-black/40 rotate-45 animate-scroll-arrow-3 -mt-1" />
+          </div>
         </div>
       </div>
     </section>
