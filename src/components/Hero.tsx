@@ -1,11 +1,37 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { FiInstagram, FiTwitter, FiFacebook } from "react-icons/fi";
 import { useFooterVisibility } from "@/context/FooterVisibilityContext";
 
 const Hero: React.FC = () => {
   const { isFooterVisible } = useFooterVisibility();
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const fixedTextRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -80% 0px",
+      }
+    );
+
+    if (fixedTextRef.current) {
+      observer.observe(fixedTextRef.current);
+    }
+
+    return () => {
+      if (fixedTextRef.current) {
+        observer.unobserve(fixedTextRef.current);
+      }
+    };
+  }, []);
+
+  const shouldBeWhite = isFooterVisible && isIntersecting;
 
   const socialLinks = [
     {
@@ -25,6 +51,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40 overflow-hidden">
       <div
+        ref={fixedTextRef}
         className="fixed hidden lg:flex items-center gap-4 transition-colors duration-300"
         style={{
           left: "4rem",
@@ -35,19 +62,19 @@ const Hero: React.FC = () => {
       >
         <div
           className={`w-[200px] h-[1px] ${
-            isFooterVisible ? "bg-white/20" : "bg-black/20"
+            shouldBeWhite ? "bg-white/20" : "bg-black/20"
           } transition-colors duration-300`}
         ></div>
         <span
           className={`text-xs uppercase tracking-[0.2em] whitespace-nowrap ${
-            isFooterVisible ? "text-white/60" : "text-black/60"
+            shouldBeWhite ? "text-white/60" : "text-black/60"
           } transition-colors duration-300`}
         >
           Créateur de Mode — Depuis 2018
         </span>
         <div
           className={`w-[200px] h-[1px] ${
-            isFooterVisible ? "bg-white/20" : "bg-black/20"
+            shouldBeWhite ? "bg-white/20" : "bg-black/20"
           } transition-colors duration-300`}
         ></div>
       </div>
