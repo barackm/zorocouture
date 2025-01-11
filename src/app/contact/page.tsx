@@ -1,10 +1,16 @@
 import React from "react";
 import Contact from "@/components/Contact";
+import Services from "@/components/Services";
 
 const ContactPage = () => {
   return (
-    <div className="pt-20 min-h-screen">
-      <Contact />
+    <div className="min-h-screen">
+      <div className="pt-20">
+        <Contact />
+      </div>
+      <section className="w-full bg-gradient-to-b from-violet-50/50 via-white to-white">
+        <Services />
+      </section>
     </div>
   );
 };
