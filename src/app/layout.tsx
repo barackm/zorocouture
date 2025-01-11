@@ -6,6 +6,7 @@ import AosProvider from "@/components/AosProvider";
 import { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Work_Sans } from "next/font/google";
+import { FooterVisibilityProvider } from "@/context/FooterVisibilityContext";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -73,16 +74,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-work-sans overflow-x-hidden">
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics
-            GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-          />
-        )}
-        <AosProvider>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </AosProvider>
+        <FooterVisibilityProvider>
+          {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+            <GoogleAnalytics
+              GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+            />
+          )}
+          <AosProvider>
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </AosProvider>
+        </FooterVisibilityProvider>
       </body>
     </html>
   );

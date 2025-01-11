@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
+import { useFooterVisibility } from "@/context/FooterVisibilityContext";
 import {
   FiInstagram,
   FiTwitter,
@@ -8,6 +10,28 @@ import {
 import Button from "./Button";
 
 const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+  const { setIsFooterVisible } = useFooterVisibility();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, [setIsFooterVisible]);
+
   const year = new Date().getFullYear();
 
   const socialLinks = [
@@ -42,7 +66,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer ref={footerRef} className="bg-gray-900 text-white">
       <div className="mx-auto px-8 md:px-16 lg:px-32">
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">

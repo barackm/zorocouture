@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { FiInstagram, FiTwitter, FiFacebook } from "react-icons/fi";
+import { useFooterVisibility } from "@/context/FooterVisibilityContext";
 
 const Hero: React.FC = () => {
+  const { isFooterVisible } = useFooterVisibility();
+
   const socialLinks = [
     {
       icon: <FiInstagram size={20} />,
@@ -21,7 +25,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full px-6 sm:px-8 md:px-16 lg:px-40 overflow-hidden">
       <div
-        className="fixed hidden lg:flex items-center gap-4"
+        className="fixed hidden lg:flex items-center gap-4 transition-colors duration-300"
         style={{
           left: "4rem",
           top: "50vh",
@@ -29,11 +33,23 @@ const Hero: React.FC = () => {
           transformOrigin: "0 50%",
         }}
       >
-        <div className="w-[200px] h-[1px] bg-black/20"></div>
-        <span className="text-xs uppercase tracking-[0.2em] whitespace-nowrap text-black/60">
+        <div
+          className={`w-[200px] h-[1px] ${
+            isFooterVisible ? "bg-white/20" : "bg-black/20"
+          } transition-colors duration-300`}
+        ></div>
+        <span
+          className={`text-xs uppercase tracking-[0.2em] whitespace-nowrap ${
+            isFooterVisible ? "text-white/60" : "text-black/60"
+          } transition-colors duration-300`}
+        >
           Créateur de Mode — Depuis 2018
         </span>
-        <div className="w-[200px] h-[1px] bg-black/20"></div>
+        <div
+          className={`w-[200px] h-[1px] ${
+            isFooterVisible ? "bg-white/20" : "bg-black/20"
+          } transition-colors duration-300`}
+        ></div>
       </div>
 
       <div className="min-h-screen flex flex-col items-center lg:flex-row lg:items-center">
