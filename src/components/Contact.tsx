@@ -9,6 +9,7 @@ import {
 import { BsChatDots } from "react-icons/bs";
 import Button from "./Button";
 import Image from "next/image";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
@@ -29,40 +30,7 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div data-aos="fade-right" className="space-y-8">
-          <form className="space-y-6">
-            <div className="space-y-4">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Votre nom"
-                  className="w-full bg-gray-50 px-6 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition-all"
-                />
-                <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">
-                  <HiUser size={20} />
-                </span>
-              </div>
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  className="w-full bg-gray-50 px-6 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition-all"
-                />
-                <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">
-                  <HiMail size={20} />
-                </span>
-              </div>
-              <div className="relative">
-                <textarea
-                  placeholder="Votre message"
-                  rows={6}
-                  className="w-full bg-gray-50 px-6 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition-all resize-none"
-                ></textarea>
-              </div>
-            </div>
-            <Button fullWidth type="submit" icon={<HiArrowRight />}>
-              Envoyer le message
-            </Button>
-          </form>
+          <ContactForm />
 
           <div className="flex items-center gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-2">

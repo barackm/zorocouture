@@ -11,6 +11,7 @@ interface ButtonProps {
   href?: string;
   fullWidth?: boolean;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 const variantStyles = {
@@ -29,29 +30,43 @@ const Button = ({
   href,
   fullWidth = false,
   type = "button",
+  disabled = false,
 }: ButtonProps) => {
   const baseStyles = `
     inline-flex items-center gap-4 px-8 py-4 
     rounded-full transition-all duration-300 
-    hover:gap-6 cursor-pointer text-sm font-semibold
+    text-sm font-semibold
     ${variantStyles[variant]}
     ${fullWidth ? "w-full justify-center" : ""}
+    ${
+      disabled
+        ? "opacity-50 cursor-not-allowed pointer-events-none"
+        : "cursor-pointer"
+    }
     ${className}
   `;
 
-  if (href) {
+  const iconStyles =
+    "transition-transform duration-300 group-hover:translate-x-2";
+
+  if (href && !disabled) {
     return (
-      <a href={href} className={baseStyles}>
+      <a href={href} className={`group ${baseStyles}`}>
         <span>{children}</span>
-        <span>{icon}</span>
+        <span className={iconStyles}>{icon}</span>
       </a>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={baseStyles}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`group ${baseStyles}`}
+    >
       <span>{children}</span>
-      <span>{icon}</span>
+      <span className={iconStyles}>{icon}</span>
     </button>
   );
 };

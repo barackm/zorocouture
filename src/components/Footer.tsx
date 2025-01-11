@@ -47,7 +47,10 @@ const Footer = () => {
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
             <div className="space-y-8">
-              <h2 className="text-3xl font-bold">Zoro Couture</h2>
+              <h2 className="text-[clamp(2.5rem,8vw,3rem)] font-extralight leading-[0.85] tracking-[-0.02em] text-black/80">
+                Zoro
+                <span className="block font-thin text-black/60">Couture</span>
+              </h2>
               <p className="text-gray-600 leading-relaxed">
                 L&apos;excellence dans l&apos;art de la couture sur mesure, où
                 chaque détail raconte une histoire unique.

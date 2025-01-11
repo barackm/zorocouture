@@ -1,145 +1,118 @@
 "use client";
 import React, { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { HiUser, HiMail, HiArrowRight } from "react-icons/hi";
+import Input from "./Input";
+import Button from "./Button";
+
 const formSpreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 
+const defaultValues = {
+  name: "Barack Mukelenga",
+  email: "barackmukelenga100@gmail.com",
+  message: "Here is the Message",
+};
+
+interface IFormInputs {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactForm: React.FC = () => {
-  const [formState, setFormState] = useState({
-    name: "Barack Mukelenga",
-    email: "barackmukelenga100@gmail.com",
-    message: "Test message",
-    status: "",
-    isLoading: false,
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<"success" | "error" | "">("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IFormInputs>({
+    defaultValues,
+    mode: "onBlur",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formState.isLoading) return;
-
-    setFormState((prev) => ({ ...prev, isLoading: true, status: "" }));
+  const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
+    if (isLoading) return;
+    setIsLoading(true);
+    setStatus("");
 
     try {
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
-
-      const response = await fetch(form.action, {
+      const response = await fetch(`https://formspree.io/f/${formSpreeId}`, {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        setFormState({
+        setStatus("success");
+        reset({
           name: "",
           email: "",
           message: "",
-          status: "success",
-          isLoading: false,
         });
-
-        setTimeout(() => {
-          setFormState((prev) => ({ ...prev, status: "" }));
-        }, 5000);
       } else {
         throw new Error("Submission failed");
       }
     } catch (error) {
-      setFormState((prev) => ({
-        ...prev,
-        status: "error",
-        isLoading: false,
-      }));
+      setStatus("error");
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormState((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-      {formState.status === "success" && (
+    <div className="space-y-6">
+      {status === "success" && (
         <p className="text-green-500 mb-4">
-          ✨ Message sent successfully! Thank you for contacting us! 🎉
+          ✨ Message envoyé avec succès! Merci de nous avoir contacté! 🎉
         </p>
       )}
-      {formState.status === "error" && (
+      {status === "error" && (
         <p className="text-red-500 mb-4">
-          ❌ Oops! Something went wrong. Please try again.
+          ❌ Oops! Une erreur s'est produite. Veuillez réessayer.
         </p>
       )}
-      <form
-        onSubmit={handleSubmit}
-        action={`https://formspree.io/f/${formSpreeId}`}
-        method="POST"
-        className="space-y-4"
-      >
-        <div>
-          <label className="block mb-1" htmlFor="name">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div className="space-y-4">
+          <Input
             name="name"
-            value={formState.name}
-            onChange={handleChange}
+            placeholder="Votre nom"
+            register={register}
             required
-            className="w-full border border-gray-300 p-2"
+            error={errors.name?.message}
+            icon={<HiUser size={20} />}
+            disabled={isLoading}
           />
-        </div>
-        <div>
-          <label className="block mb-1" htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
+          <Input
             name="email"
-            value={formState.email}
-            onChange={handleChange}
+            type="email"
+            placeholder="Votre email"
+            register={register}
             required
-            className="w-full border border-gray-300 p-2"
+            error={errors.email?.message}
+            icon={<HiMail size={20} />}
+            disabled={isLoading}
           />
-        </div>
-        <div>
-          <label className="block mb-1" htmlFor="message">
-            Message
-          </label>
-          <textarea
-            id="message"
+          <Input
             name="message"
-            value={formState.message}
-            onChange={handleChange}
+            placeholder="Votre message"
+            register={register}
             required
-            className="w-full border border-gray-300 p-2"
+            error={errors.message?.message}
+            textarea
+            disabled={isLoading}
           />
         </div>
-        <button
+        <Button
+          fullWidth
           type="submit"
-          disabled={formState.isLoading}
-          className={`w-full bg-blue-500 text-white p-2 relative ${
-            formState.isLoading ? "opacity-70 cursor-not-allowed" : ""
-          }`}
+          icon={<HiArrowRight />}
+          disabled={isLoading}
         >
-          {formState.isLoading ? (
-            <>
-              <span className="opacity-0">Send Message</span>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            </>
-          ) : (
-            "Send Message"
-          )}
-        </button>
+          {isLoading ? "Envoi en cours..." : "Envoyer le message"}
+        </Button>
       </form>
     </div>
   );
