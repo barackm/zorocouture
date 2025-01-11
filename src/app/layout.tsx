@@ -89,6 +89,7 @@ export const metadata: Metadata = {
     icon: "/logo2.png",
   },
   other: {
+    "theme-color": "#ffffff",
     "x-ua-compatible": "IE=edge",
     "format-detection": "telephone=no",
     "apple-mobile-web-app-capable": "yes",
