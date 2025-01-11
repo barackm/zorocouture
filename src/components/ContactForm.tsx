@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
       )}
       {status === "error" && (
         <p className="text-red-500 mb-4">
-          ❌ Oops! Une erreur s'est produite. Veuillez réessayer.
+          ❌ Oops! Une erreur s&apos;est produite. Veuillez réessayer.
         </p>
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
