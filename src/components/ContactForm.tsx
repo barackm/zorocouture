@@ -71,7 +71,7 @@ const ContactForm: React.FC = () => {
       } else {
         throw new Error("Submission failed");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     } finally {
       setIsLoading(false);

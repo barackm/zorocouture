@@ -1,6 +1,5 @@
 import React from "react";
 import { UseFormRegister } from "react-hook-form";
-import { IconType } from "react-icons";
 
 interface InputProps {
   label?: string;

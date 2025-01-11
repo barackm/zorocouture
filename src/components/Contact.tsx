@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  HiUser,
-  HiMail,
-  HiPhone,
-  HiLocationMarker,
-  HiArrowRight,
-} from "react-icons/hi";
+import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { BsChatDots } from "react-icons/bs";
-import Button from "./Button";
 import Image from "next/image";
 import ContactForm from "./ContactForm";
 
