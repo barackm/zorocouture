@@ -1,12 +1,12 @@
 import React from "react";
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, Path, FieldValues } from "react-hook-form";
 
-interface InputProps {
+interface InputProps<T extends FieldValues> {
   label?: string;
-  name: string;
+  name: Path<T>;
   type?: string;
   required?: boolean;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<T>;
   error?: string;
   textarea?: boolean;
   defaultValue?: string;
@@ -15,7 +15,7 @@ interface InputProps {
   disabled?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = <T extends FieldValues>({
   label,
   name,
   type = "text",
@@ -27,7 +27,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   icon,
   disabled = false,
-}) => {
+}: InputProps<T>) => {
   const inputClasses = `
     w-full bg-gray-50 px-6 py-4 rounded-xl 
     outline-none focus:ring-2 focus:ring-black transition-all

@@ -92,7 +92,7 @@ const ContactForm: React.FC = () => {
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-4">
-          <Input
+          <Input<IFormInputs>
             name="name"
             placeholder="Votre nom"
             register={register}
@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
             icon={<HiUser size={20} />}
             disabled={isLoading}
           />
-          <Input
+          <Input<IFormInputs>
             name="email"
             type="email"
             placeholder="Votre email"
@@ -111,7 +111,7 @@ const ContactForm: React.FC = () => {
             icon={<HiMail size={20} />}
             disabled={isLoading}
           />
-          <Input
+          <Input<IFormInputs>
             name="message"
             placeholder="Votre message"
             register={register}
