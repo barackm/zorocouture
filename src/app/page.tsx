@@ -4,6 +4,15 @@ import About from "../components/About";
 import Portfolio from "@/components/Portfolio";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  description:
+    "Zoro Couture - Votre atelier de couture professionnel à Goma, RDC. Spécialisé en haute couture, vêtements sur mesure, et design de mode africaine.",
+  alternates: {
+    canonical: "https://zorocouture.com",
+  },
+};
 
 const HomePage = () => {
   return (
