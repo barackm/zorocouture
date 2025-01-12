@@ -13,15 +13,45 @@ export const metadata: Metadata = {
 };
 
 const PortfolioPage = () => {
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Portfolio Zoro Couture",
+    description: "Découvrez nos créations de haute couture à Goma",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Accueil",
+          item: "https://zorocouture.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Portfolio",
+          item: "https://zorocouture.com/portfolio",
+        },
+      ],
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      <div className="pt-20">
-        <Portfolio />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
+      />
+      <div className="min-h-screen">
+        <div className="pt-20">
+          <Portfolio />
+        </div>
+        <section className="w-full bg-gradient-to-b from-emerald-50/50 via-white to-white">
+          <Contact />
+        </section>
       </div>
-      <section className="w-full bg-gradient-to-b from-emerald-50/50 via-white to-white">
-        <Contact />
-      </section>
-    </div>
+    </>
   );
 };
 

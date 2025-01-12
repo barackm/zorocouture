@@ -13,15 +13,55 @@ export const metadata: Metadata = {
 };
 
 const ServicesPage = () => {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Couture",
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Zoro Couture",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Goma",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services de Couture",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Haute Couture",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Vêtements sur mesure",
+          },
+        },
+      ],
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      <div className="pt-20">
-        <Services />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <div className="min-h-screen">
+        <div className="pt-20">
+          <Services />
+        </div>
+        <section className="w-full bg-gradient-to-b from-sky-50/50 via-white to-white">
+          <Portfolio />
+        </section>
       </div>
-      <section className="w-full bg-gradient-to-b from-sky-50/50 via-white to-white">
-        <Portfolio />
-      </section>
-    </div>
+    </>
   );
 };
 

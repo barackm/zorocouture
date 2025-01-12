@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Work_Sans } from "next/font/google";
 import { FooterVisibilityProvider } from "@/context/FooterVisibilityContext";
+import LocalBusiness from "@/components/LocalBusiness";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -116,6 +117,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-work-sans overflow-x-hidden">
+        <LocalBusiness />
         <FooterVisibilityProvider>
           {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
             <GoogleAnalytics
